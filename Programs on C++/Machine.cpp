@@ -1,9 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Machine.h"
-
-
-
-FILE* myinfo;
+#include <fstream>
+#include <iostream>
+#include <string>
 void Machine::Print()
 {
 	std::cout << "Состояние станка: " << start << std::endl;
@@ -69,12 +68,20 @@ void Machine::launch()
 		std::cout<<"\nФорма: "<<form << "\tготова"<<std::endl;
 	}
 }
+
 void Machine::info() {
-	char str[300];
-	myinfo = fopen("info.txt", "r");
-	while (fgets(str, 250, myinfo) != NULL)
-		printf("%s", str);
-	fclose(myinfo);
+	std::string as;
+	std::ifstream fout("myinfo.txt");
+	
+	if (fout.is_open()) 
+	{
+		while (std::getline(fout, as))
+		{
+			std::cout << as << std::endl;
+		}
+	}
+	
+	fout.close();
 }
 
 

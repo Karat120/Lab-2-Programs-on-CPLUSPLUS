@@ -14,7 +14,12 @@ private:
 	Engine engine;
 	SystemManag systemmanag;
 public:
-	Machine()
+	Machine() {
+		start = false;
+		length = 0;
+		width = 0;
+	}
+	Machine(bool start)
 	{
 		
 		do {
@@ -49,9 +54,7 @@ public:
 
 	}
 	
-	~Machine() {
-		
-	}
+	
 	void Print();
 	void  SetStart(bool start);
 	void SetStuff(std::string stuff);
