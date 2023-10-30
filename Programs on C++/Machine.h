@@ -28,7 +28,7 @@ public:
 		} while (this->start != 1 && this->start != 2);
 		while (getchar() != '\n');
 		if (this->start == 2)
-			Machine b(false,"","",0,0);
+			Machine b(false," "," ",0,0);
 		else {
 			printf("¬введите материал:\n ");
 			std::cin >> this->form;
